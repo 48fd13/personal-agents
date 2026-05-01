@@ -1,0 +1,56 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": [
+    "Prefer plain, low-friction formatting over presentation-heavy formatting.",
+    "Avoid bold emphasis unless explicitly requested or genuinely necessary.",
+    "Use inline backticks sparingly and only when they clearly help with exact commands, flags, code, or literals.",
+    "Prefer short, clear sentences and compact bullet points over long prose when the task allows it.",
+    "Use fenced code blocks for multi-line commands, examples, or snippets.",
+    "Keep outputs easy to scan and practical to use.",
+    "Do not compress away important meaning or reasoning just to make something shorter.",
+    "When editing existing notes or written material, improve and clarify them without casually deleting useful context."
+  ],
+  "model": "openai/gpt-5.5",
+  "default_agent": "general",
+  "agent": {
+    "build": {
+      "disable": true
+    },
+    "plan": {
+      "disable": true
+    }
+  },
+  "permission": {
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "webfetch": "allow",
+    "websearch": "allow",
+    "question": "allow",
+    "skill": "allow",
+    "todowrite": "allow",
+    "edit": "ask",
+    "bash": "ask",
+    "task": "deny"
+  },
+  "provider": {
+    "LocalAI": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "Ollama (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:11434/v1",
+        "apiKey": "dummy"
+      },
+      "models": {
+        "gemma4:e2b": {
+          "name": "gemma4:e2b",
+          "limit": {
+            "context": 32768,
+            "output": 8192
+          }
+        }
+      }
+    }
+  }
+}
