@@ -16,7 +16,7 @@
     "general": {
       "description": "Broad general assistant for practical help, questions, and vault-aware work.",
       "mode": "primary",
-      "prompt": "{file:.opencode/agents/general.md}",
+      "prompt": "{file:agents/general.md}",
       "permission": {
         "read": "allow",
         "glob": "allow",
@@ -82,6 +82,12 @@
           "*$(*": "ask",
           "* xargs *": "ask",
           "tee *": "ask",
+          "git status* && git diff*": "allow",
+          "git status* && git diff --stat*": "allow",
+          "git status* && git log*": "allow",
+          "git status*; git diff*": "allow",
+          "pwd && ls*": "allow",
+          "pwd; ls*": "allow",
           "*&&*": "ask",
           "*;*": "ask",
           "*": "ask"
@@ -106,7 +112,7 @@
     "learning": {
       "description": "Higher-order learning assistant for understanding, schemas, recall, and application.",
       "mode": "primary",
-      "prompt": "{file:.opencode/agents/learning.md}",
+      "prompt": "{file:agents/learning.md}",
       "permission": {
         "read": "allow",
         "glob": "allow",
@@ -138,7 +144,7 @@
     "processing": {
       "description": "Vault processing assistant for inbox and active notes with careful preservation.",
       "mode": "primary",
-      "prompt": "{file:.opencode/agents/processing.md}",
+      "prompt": "{file:agents/processing.md}",
       "permission": {
         "read": "allow",
         "glob": "allow",
@@ -239,6 +245,12 @@
       "*$(*": "ask",
       "* xargs *": "ask",
       "tee *": "ask",
+      "git status* && git diff*": "allow",
+      "git status* && git diff --stat*": "allow",
+      "git status* && git log*": "allow",
+      "git status*; git diff*": "allow",
+      "pwd && ls*": "allow",
+      "pwd; ls*": "allow",
       "*&&*": "ask",
       "*;*": "ask",
       "*": "ask"
